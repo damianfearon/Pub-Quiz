@@ -1,4 +1,4 @@
-//   Elements
+//   Elements for Pub Quiz
 var timerSpan = document.querySelector(".timer");
 var container = document.querySelector(".wrapper");
 var startBlock = document.querySelector("#start-screen");
@@ -10,13 +10,58 @@ var questionsChoices = document.querySelector("#choices");
 
 var endBlock = document.querySelector("#end-screen");
 
+var correctSound = new Audio(
+  ".../../assets/sfx/correct.wav"
+);
+var incorrectSound = new Audio(
+  "../../assets/sfx/incorrect.wav"
+);
+
 var finalScore = document.querySelector("#final-score");
 var scoreBtn = document.querySelector("#submit");
 var initials = document.querySelector("#initials");
 
 var feedback = document.querySelector("#feedback");
 
-// Timer function
+// Array = one object for each of the questions.
+
+var questions = [
+  {
+    question: "What is the capital on England",
+    answers: {
+      a: "London",
+      b: "Manchester",
+      c: "Sydney",
+    },
+    correctAnswer: "a",
+  },
+  {
+    question: "‘The Godfather’ was released in 1972; who played the title role?",
+    answers: {
+      a: "Robert De Niro",
+      b: "Robert Duvall",
+      c: "Marlon Brando",
+      d: "Al Pacino",
+    },
+    correctAnswer: "c",
+  },
+  {
+    question: "Which country became the first to give women the vote in 1893?",
+    answers: {
+      a: "United Kingdom",
+      b: "New Zealand",
+      c: "Australia",
+      d: "Germany",
+      e: "None of these countries",
+    },
+    correctAnswer: "b",
+  },
+    
+
+];
+
+
+// Timer (top right)
 var timeLeft = 75;
 var timer;
 
@@ -80,9 +125,11 @@ questionsChoices.addEventListener("click", function (e) {
   if (userAnswer.matches("button")) {
     if (index < questions.length - 1) {
       if (key === correctAnswer) {
-        feedback.textContent = "Correct!";
+        feedback.textContent = "Correct! Keep Going!";
+        correctSound.play();
       } else {
-        feedback.textContent = "Wrong!";
+        feedback.textContent = "Incorrect!";
+        incorrectSound.play();
         timeLeft -= 20;
       }
       index++;

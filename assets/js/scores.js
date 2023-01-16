@@ -14,7 +14,7 @@ function getList() {
   }
 }
 
-// Render a new li for each score
+//  New li for each score
 function scoreList() {
   for (var i = 0; i < scores.length; i++) {
     var score = scores[i];
