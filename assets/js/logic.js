@@ -179,7 +179,7 @@ scoreBtn.addEventListener("click", function (e) {
   storePlayers();
 
   window.open(
-    "https://github.com/damianfearon/Pub-Quiz/blob/main/highscores.html",
+    "https://github.com/damianfearon/Pub-Quiz/highscores.html",
     "_self"
   );
 });
