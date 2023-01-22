@@ -1,12 +1,17 @@
 //   Elements for Pub Quiz
-var timerSpan = document.querySelector(".timer");
 var container = document.querySelector(".wrapper");
 var startBlock = document.querySelector("#start-screen");
+var timerSpan = document.querySelector(".timer");
 var startBtn = document.querySelector("#start");
 
+var questionsChoices = document.querySelector("#choices");
 var quizContainer = document.querySelector("#questions");
 var questionTitle = document.querySelector("#question-title");
-var questionsChoices = document.querySelector("#choices");
+
+var finalScore = document.querySelector("#final-score");
+var scoreBtn = document.querySelector("#submit");
+var initials = document.querySelector("#initials");
+var feedback = document.querySelector("#feedback");
 
 var endBlock = document.querySelector("#end-screen");
 
@@ -16,12 +21,6 @@ var correctSound = new Audio(
 var incorrectSound = new Audio(
   "../../assets/sfx/incorrect.wav"
 );
-
-var finalScore = document.querySelector("#final-score");
-var scoreBtn = document.querySelector("#submit");
-var initials = document.querySelector("#initials");
-
-var feedback = document.querySelector("#feedback");
 
 // Array = one object for each of the questions.
 
@@ -60,7 +59,6 @@ var questions = [
 
 ];
 
-
 // Timer (top right)
 var timeLeft = 75;
 var timer;
@@ -68,6 +66,8 @@ var timer;
 function winGame() {
   endBlock.setAttribute("class", "show");
   score = timeLeft;
+  quizContainer.setAttribute("class", "hide");
+  feedback.setAttribute("class", "hide");
   finalScore.textContent = score;
   console.log("Your score is: " + score);
 }
@@ -115,6 +115,7 @@ function quiz() {
     questionsChoices.innerHTML = buttons;
   }
 }
+
 
 var score;
 
@@ -177,7 +178,10 @@ scoreBtn.addEventListener("click", function (e) {
   storage();
   storePlayers();
 
-  window.open("../../highscores.html", "_self");
+  window.open(
+    "https://github.com/damianfearon/Pub-Quiz/blob/main/highscores.html",
+    "_self"
+  );
 });
 console.log(localStorage.getItem("bestScores"));
 
