@@ -16,10 +16,10 @@ var feedback = document.querySelector("#feedback");
 var endBlock = document.querySelector("#end-screen");
 
 var correctSound = new Audio(
-  ".../../assets/sfx/correct.wav"
+ "./assets/sfx/correct.wav"
 );
 var incorrectSound = new Audio(
-  "../../assets/sfx/incorrect.wav"
+  "./assets/sfx/incorrect.wav"
 );
 
 // Array = one object for each of the questions.
