@@ -104,3 +104,9 @@ Satisfies all of the above acceptance criteria plus the following:
 
 
 <h3>Screenshot</h3>
+<br> 
+<img
+  src="assets/Screenshot/Screenshot.jpg"
+  alt="Alt text"
+  title="Optional title"
+  style="display: inline-block; margin: 0 auto; max-width: 500px">
